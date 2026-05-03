@@ -1,42 +1,40 @@
-# 🌳 LeetTree Notes
-
-A powerful, local-first Chrome extension designed to transform your LeetCode grind into a highly structured, retrievable, and visually stunning knowledge base. Stop losing track of your problem-solving patterns. Build a personalized algorithm study suite directly in your browser.
-
-## ✨ Key Features
-
-* **📥 Seamless LeetCode Integration:** A content script automatically overlays on LeetCode pages, providing a "Save to LeetTree" button to instantly scrape problem descriptions, metadata, and your current code.
-* **🧠 Active Recall Mode:** Code blocks in the dashboard are blurred by default. Force yourself to remember the logic before peeking!
-* **🎨 Built-in Pattern Whiteboard:** A fully-featured drawing canvas integrated right into the rich text editor. Sketch out Sliding Window state, DP transitions, and Graph traversals without leaving the app.
-* **📂 Folder & Topic Hierarchy:** Organize problems by algorithmic pattern (e.g., "Two Pointers", "Dynamic Programming").
-* **📝 Topic-Level Notes:** Save rich text and whiteboard diagrams directly to a folder (topic) to consolidate your high-level strategy for specific patterns.
-* **🤖 "Suggested Practice" Engine:** A smart sorting algorithm that mathematically prioritizes problems you need to review based on:
-  * Explicit "Needs Revision" flags.
-  * Time-decay (older problems bubble up).
-  * Inherent Problem Difficulty weighting.
-* **🔒 100% Local Storage:** Extremely fast and completely offline. Your notes belong to you. Includes easy JSON Export/Import for backups.
-* **💎 Premium Aesthetics:** A highly polished, reactive, minimalist dark-mode design system.
-
-## 🚀 Installation (Developer Mode)
-
-Since this extension relies heavily on deep browser integration and local storage APIs, it is run locally:
-
-1. Clone or download this repository.
-2. Open Google Chrome and navigate to `chrome://extensions/`.
-3. Enable **"Developer mode"** in the top right corner.
-4. Click **"Load unpacked"** in the top left corner.
-5. Select the `LeetTree-Notes` folder.
-6. The extension is now installed! Click the LeetTree icon in your extensions menu to open your Dashboard, or visit a LeetCode problem to see the overlay!
-
-## 🛠️ Tech Stack
-
-* **Core:** HTML5, Vanilla JS (ES6 Modules), CSS3
-* **APIs:** Chrome Extensions API (`chrome.storage.local`, `chrome.runtime`, Message Passing)
-* **Design:** Bespoke CSS Design System, CSS Variables, SVG Icons
-* **Rich Text:** `contenteditable` combined with custom-built text actions and base64 image encoding.
-
-## 🤝 Contributing
-
-This is a personal learning suite developed iteratively. However, if you find a bug or have a suggestion, feel free to open an issue or submit a PR!
+<div align="center">
+  <img src="icons/icon128.png" alt="LeetTree Logo" width="100"/>
+  <h1>🌳 LeetTree Notes</h1>
+  <p><strong>A cozy, local-first Chrome extension to store and organize your LeetCode journey.</strong></p>
+</div>
 
 ---
-*Built to help you crush technical interviews and master data structures & algorithms.*
+
+If you've ever solved a problem and thought, *"I am absolutely going to forget how I did this by tomorrow"*, LeetTree is for you. 
+
+Instead of dealing with scattered text files, Notion databases that take too long to load, or messy code comments, LeetTree integrates directly into your browser. It's a personal hub where you can save problems, write down your thought process, draw diagrams, and easily find them later.
+
+## ✨ Why LeetTree?
+
+- 🖱️ **One-Click Saves:** Click the LeetTree button directly on any LeetCode page. It instantly grabs the problem description, your code, and the URL.
+- 🎨 **Built-in Whiteboard:** Some problems just need a drawing. Open the whiteboard directly in your notes to sketch out sliding windows, graphs, or recursion trees. 
+- 📂 **Folders & Topics:** Group your problems. Build a folder for "Dynamic Programming" or "Arrays" and keep all related problems together.
+- 🧠 **Smart Practice:** Don't know what to review? Sort by `Suggested Practice 🧠` and the app will surface problems you haven't looked at in a while or ones you've explicitly marked for revision.
+- 🙈 **Active Recall:** Your saved code is blurred out by default so you can try to remember the logic before peeking!
+- 🔒 **100% Offline & Private:** Everything is stored locally in your browser using Chrome Storage. It's blazing fast, completely offline, and your data stays yours. 
+
+## 🚀 Setup Guide
+
+Since LeetTree runs completely locally, you can install it in seconds using Developer Mode:
+
+1. **Download** or clone this repository to your computer.
+2. Open Chrome and go to `chrome://extensions/` (or click Manage Extensions).
+3. Toggle on **Developer mode** in the top-right corner.
+4. Click **Load unpacked** in the top-left corner.
+5. Select the `LeetTree-Notes` folder you just downloaded.
+6. **Done!** Pin the 🌳 icon to your toolbar. Click it to open your dashboard, or just visit a LeetCode problem to see the magic button.
+
+## 💾 Backing Up Your Data
+
+Because LeetTree is local-first, if you uninstall the extension, your browser *might* clear the data.
+- **Export:** Click the "Export as Markdown" or "Export" buttons in the dashboard to save a JSON backup of all your hard work.
+- **Import:** You can restore your data at any time using the Import button.
+
+---
+*Happy coding! Built to make storing your LeetCode notes just a little bit easier.*
