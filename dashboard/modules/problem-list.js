@@ -82,6 +82,9 @@ export class ProblemList {
           // Massive priority for explicitly marked revision items
           if (p.revision) score += 10000;
           
+          // High priority for starred/favorite items
+          if (p.starred) score += 5000;
+          
           // Higher difficulty needs more practice baseline
           const diffScores = { 'Easy': 100, 'Medium': 200, 'Hard': 300 };
           score += (diffScores[p.difficulty] || 0);
