@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeetTree Notes — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top Bar -->
+  <header class="topbar" id="topbar">
+    <div class="topbar-left">
+      <img src="../icons/icon32.png" alt="LeetTree" class="topbar-logo" width="28" height="28">
+      <h1 class="topbar-title">LeetTree Notes</h1>
+    </div>
+    <div class="topbar-center">
+      <div class="search-wrapper" id="search-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Search problems, tags, notes...">
+        <kbd class="search-kbd">Ctrl+K</kbd>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <button class="topbar-btn" id="btn-export" title="Export Data">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      </button>
+      <button class="topbar-btn" id="btn-import" title="Import Data">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <main class="main-layout" id="main-layout">
+    <!-- LEFT: Topic Tree -->
+    <aside class="panel panel-tree" id="panel-tree">
+      <div class="panel-header">
+        <h2 class="panel-title">Topics</h2>
+        <button class="panel-action-btn" id="btn-add-folder" title="New Folder">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </div>
+      <div class="tree-container" id="tree-container">
+        <!-- Topic tree renders here -->
+      </div>
+      <div class="panel-footer">
+        <button class="filter-chip active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="starred">⭐ Starred</button>
+        <button class="filter-chip" data-filter="revision">🔁 Revision</button>
+      </div>
+      <div class="panel-header" style="border-top: 1px solid var(--border); padding-top: 8px;">
+        <h2 class="panel-title" style="font-size:12px;text-transform:uppercase;letter-spacing:0.5px;">Tags</h2>
+      </div>
+      <div class="tag-cloud" id="tag-cloud">
+        <!-- Tags render here -->
+      </div>
+    </aside>
+
+    <!-- Resize Handle -->
+    <div class="resize-handle" data-resize="tree"></div>
+
+    <!-- MIDDLE: Problem List -->
+    <section class="panel panel-problems" id="panel-problems">
+      <div class="panel-header">
+        <h2 class="panel-title" id="problems-title">All Problems</h2>
+        <div class="panel-header-actions">
+          <button class="panel-action-btn" id="btn-add-problem" title="Add Problem">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <select class="sort-select" id="sort-select" title="Sort Problems">
+            <option value="recent">Recent</option>
+            <option value="practice">Suggested Practice 🧠</option>
+            <option value="number">Number</option>
+            <option value="name">Name</option>
+            <option value="difficulty-desc">Difficulty (High to Low)</option>
+            <option value="difficulty-asc">Difficulty (Low to High)</option>
+          </select>
+        </div>
+      </div>
+      <div class="problem-list" id="problem-list">
+        <!-- Problem cards render here -->
+      </div>
+    </section>
+
+    <!-- Resize Handle -->
+    <div class="resize-handle" data-resize="problems"></div>
+
+    <!-- RIGHT: Solution View -->
+    <section class="panel panel-solution" id="panel-solution">
+      <div class="sv-main-tabs" id="sv-main-tabs" style="display: none;">
+        <!-- Problem Tabs will go here -->
+      </div>
+      <div class="solution-empty" id="solution-empty">
+        <div class="welcome-dashboard">
+          <div class="welcome-header">
+            <h2 class="welcome-title">Welcome back to LeetTree</h2>
+            <p class="welcome-subtitle">Your algorithmic journey continues here.</p>
+          </div>
+          
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon stat-icon--solved">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <div class="stat-info">
+                <span class="stat-value" id="stats-total">0</span>
+                <span class="stat-label">Problems Solved</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon stat-icon--starred">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <div class="stat-info">
+                <span class="stat-value" id="stats-starred">0</span>
+                <span class="stat-label">Favorites</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon stat-icon--revision">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+              </div>
+              <div class="stat-info">
+                <span class="stat-value" id="stats-revision">0</span>
+                <span class="stat-label">Needs Revision</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-footer">
+            <div class="tip-card">
+              <div class="tip-icon">💡</div>
+              <div class="tip-text">
+                <strong>Pro Tip:</strong> Use <kbd>Ctrl+K</kbd> to quickly search through your notes, or paste images directly into your solutions for visual intuition.
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;margin-top:24px;">
+              <button class="btn btn--primary" id="btn-home-add-problem" style="padding: 10px 20px;">+ Add New Problem</button>
+              <button class="btn btn--ghost" id="btn-export-markdown" style="padding: 10px 20px;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Export as Markdown
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Topic Notes View (shown when a folder is selected) -->
+      <div class="topic-notes-panel" id="topic-notes-view" style="display:none;">
+        <div class="topic-notes-header">
+          <h2 class="topic-notes-title" id="tn-title">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            Topic Notes
+          </h2>
+          <button class="btn btn--primary" id="tn-edit-btn">Edit Notes</button>
+        </div>
+        <div class="topic-notes-content" id="tn-content-view" style="padding:20px;"></div>
+        
+        <!-- Editor for topic notes -->
+        <div id="tn-editor-container" style="display:none;">
+          <div id="tn-rich-editor"></div>
+          <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:16px;">
+            <button class="btn btn--ghost" id="tn-cancel-btn">Cancel</button>
+            <button class="btn btn--primary" id="tn-save-btn">Save Notes</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="solution-view" id="solution-view" style="display:none;">
+        <!-- Solution content renders here -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Editor Modal (hidden by default) -->
+  <div class="modal-overlay" id="editor-modal" style="display:none;">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title">Add Solution</h2>
+        <button class="modal-close" id="modal-close">×</button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <!-- Editor form renders here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Problem Modal -->
+  <div class="modal-overlay" id="add-problem-modal" style="display:none;">
+    <div class="modal-container modal-container--sm">
+      <div class="modal-header">
+        <h2 class="modal-title">Add Problem</h2>
+        <button class="modal-close" id="add-problem-close">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="add-problem-form">
+          <div class="form-group">
+            <label class="form-label">Problem Title</label>
+            <input type="text" class="form-input" id="ap-title" placeholder="Two Sum" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Number</label>
+              <input type="text" class="form-input" id="ap-number" placeholder="1">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Difficulty</label>
+              <select class="form-input" id="ap-difficulty">
+                <option value="Easy">Easy</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">LeetCode URL</label>
+            <input type="url" class="form-input" id="ap-url" placeholder="https://leetcode.com/problems/two-sum/">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Folder</label>
+            <select class="form-input" id="ap-folder"></select>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn--ghost" id="ap-cancel">Cancel</button>
+            <button type="submit" class="btn btn--primary">Add Problem</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden file input for import -->
+  <input type="file" id="import-file" accept=".json" style="display:none">
+
+  <!-- Whiteboard Modal -->
+  <div class="wb-modal" id="wb-modal" style="display:none;">
+    <div class="wb-modal-inner" id="wb-container"></div>
+  </div>
+
+  <script type="module" src="modules/app.js"></script>
+</body>
+</html>

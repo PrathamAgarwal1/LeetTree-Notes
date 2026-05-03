@@ -1,0 +1,167 @@
+/* LeetTree Notes — Popup Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 320px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+  background: #0d1117;
+  color: #e6edf3;
+  overflow: hidden;
+}
+
+.popup-container {
+  padding: 16px;
+}
+
+/* Header */
+.popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(233, 69, 96, 0.2);
+}
+
+.popup-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.popup-logo img {
+  border-radius: 6px;
+}
+
+.popup-logo h1 {
+  font-size: 16px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #e94560, #fca311);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.popup-version {
+  font-size: 10px;
+  color: #484f58;
+  background: rgba(233, 69, 96, 0.1);
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(233, 69, 96, 0.15);
+}
+
+/* Stats Grid */
+.popup-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 6px;
+  background: rgba(22, 27, 34, 0.8);
+  border: 1px solid #21262d;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+  border-color: rgba(233, 69, 96, 0.3);
+  background: rgba(233, 69, 96, 0.05);
+}
+
+.stat-number {
+  font-size: 20px;
+  font-weight: 700;
+  color: #e94560;
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 9px;
+  color: #7d8590;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+/* Action Buttons */
+.popup-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.popup-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.popup-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.popup-btn--primary {
+  background: linear-gradient(135deg, #e94560 0%, #c23152 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(233, 69, 96, 0.3);
+}
+
+.popup-btn--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(233, 69, 96, 0.4);
+}
+
+.popup-btn--secondary {
+  background: rgba(22, 27, 34, 0.8);
+  color: #e6edf3;
+  border: 1px solid #21262d;
+}
+
+.popup-btn--secondary:hover {
+  border-color: #e94560;
+  background: rgba(233, 69, 96, 0.08);
+}
+
+/* Footer */
+.popup-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid #21262d;
+  font-size: 11px;
+  color: #484f58;
+}
+
+.popup-link {
+  color: #e94560;
+  text-decoration: none;
+  font-size: 11px;
+}
+
+.popup-link:hover {
+  text-decoration: underline;
+}
