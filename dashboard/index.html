@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LeetTree Notes — Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="../icons/icon32.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="../icons/icon16.png?v=2">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <!-- Top Bar -->
   <header class="topbar" id="topbar">
     <div class="topbar-left">
-      <img src="../icons/icon32.png" alt="LeetTree" class="topbar-logo" width="28" height="28">
+      <img src="../icons/icon32.png?v=2" alt="LeetTree" class="topbar-logo" width="28" height="28">
       <h1 class="topbar-title">LeetTree Notes</h1>
     </div>
     <div class="topbar-center">
       <div class="search-wrapper" id="search-wrapper">
-        <svg class="search-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <svg class="search-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
         <input type="text" id="search-input" class="search-input" placeholder="Search problems, tags, notes...">
         <kbd class="search-kbd">Ctrl+K</kbd>
       </div>
     </div>
     <div class="topbar-right">
       <button class="topbar-btn" id="btn-export" title="Export Data">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="17 8 12 3 7 8" />
+          <line x1="12" y1="3" x2="12" y2="15" />
+        </svg>
       </button>
       <button class="topbar-btn" id="btn-import" title="Import Data">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
       </button>
     </div>
   </header>
@@ -41,7 +57,10 @@
       <div class="panel-header">
         <h2 class="panel-title">Topics</h2>
         <button class="panel-action-btn" id="btn-add-folder" title="New Folder">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
         </button>
       </div>
       <div class="tree-container" id="tree-container">
@@ -69,7 +88,10 @@
         <h2 class="panel-title" id="problems-title">All Problems</h2>
         <div class="panel-header-actions">
           <button class="panel-action-btn" id="btn-add-problem" title="Add Problem">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
           </button>
           <select class="sort-select" id="sort-select" title="Sort Problems">
             <option value="recent">Recent</option>
@@ -100,11 +122,14 @@
             <h2 class="welcome-title">Welcome back to LeetTree</h2>
             <p class="welcome-subtitle">Your algorithmic journey continues here.</p>
           </div>
-          
+
           <div class="stats-grid">
             <div class="stat-card">
               <div class="stat-icon stat-icon--solved">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
               </div>
               <div class="stat-info">
                 <span class="stat-value" id="stats-total">0</span>
@@ -113,7 +138,10 @@
             </div>
             <div class="stat-card">
               <div class="stat-icon stat-icon--starred">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
               </div>
               <div class="stat-info">
                 <span class="stat-value" id="stats-starred">0</span>
@@ -122,7 +150,10 @@
             </div>
             <div class="stat-card">
               <div class="stat-icon stat-icon--revision">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 4v6h-6" />
+                  <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+                </svg>
               </div>
               <div class="stat-info">
                 <span class="stat-value" id="stats-revision">0</span>
@@ -135,31 +166,41 @@
             <div class="tip-card">
               <div class="tip-icon">💡</div>
               <div class="tip-text">
-                <strong>Pro Tip:</strong> Use <kbd>Ctrl+K</kbd> to quickly search through your notes, or paste images directly into your solutions for visual intuition.
+                <strong>Pro Tip:</strong> Use <kbd>Ctrl+K</kbd> to quickly search through your notes, or paste images
+                directly into your solutions for visual intuition.
               </div>
             </div>
             <div style="display:flex;gap:12px;margin-top:24px;">
-              <button class="btn btn--primary" id="btn-home-add-problem" style="padding: 10px 20px;">+ Add New Problem</button>
+              <button class="btn btn--primary" id="btn-home-add-problem" style="padding: 10px 20px;">+ Add New
+                Problem</button>
               <button class="btn btn--ghost" id="btn-export-markdown" style="padding: 10px 20px;">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                  style="margin-right:8px;">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
                 Export as Markdown
               </button>
             </div>
           </div>
         </div>
       </div>
-      
+
       <!-- Topic Notes View (shown when a folder is selected) -->
       <div class="topic-notes-panel" id="topic-notes-view" style="display:none;">
         <div class="topic-notes-header">
           <h2 class="topic-notes-title" id="tn-title">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+            </svg>
             Topic Notes
           </h2>
           <button class="btn btn--primary" id="tn-edit-btn">Edit Notes</button>
         </div>
         <div class="topic-notes-content" id="tn-content-view" style="padding:20px;"></div>
-        
+
         <!-- Editor for topic notes -->
         <div id="tn-editor-container" style="display:none;">
           <div id="tn-rich-editor"></div>
@@ -243,4 +284,5 @@
 
   <script type="module" src="modules/app.js"></script>
 </body>
+
 </html>
