@@ -164,13 +164,17 @@ export class SolutionView {
 
     html += `</div>`;
     
-    // Save scroll position
-    const scrollTop = this.container.scrollTop;
+    // Save scroll position of the actual scrollable content area
+    const contentArea = this.container.querySelector('.sv-content');
+    const scrollTop = contentArea ? contentArea.scrollTop : 0;
     
     this.container.innerHTML = html;
     
     // Restore scroll position
-    this.container.scrollTop = scrollTop;
+    if (scrollTop > 0) {
+      const newContentArea = this.container.querySelector('.sv-content');
+      if (newContentArea) newContentArea.scrollTop = scrollTop;
+    }
 
     this.attachEvents(this.problem.solutions?.find(s => s.id === this.activeSolutionId));
   }
