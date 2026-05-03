@@ -9,7 +9,7 @@ export class SolutionView {
     this.callbacks = callbacks; // { onEditSolution, onAddSolution, onDeleteProblem }
     this.problem = null;
     this.activeSolutionId = null;
-    this.codeHidden = false; // Active Recall mode
+    this.codeHidden = true; // Active Recall mode ON by default
   }
 
   setProblem(problem) {
@@ -18,8 +18,9 @@ export class SolutionView {
       return;
     }
 
-    // Set active solution (default to question)
+    // Set active solution (default to question) and reset code visibility
     this.activeSolutionId = 'question';
+    this.codeHidden = true;
     this.render();
   }
 
