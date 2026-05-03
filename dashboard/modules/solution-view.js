@@ -163,7 +163,14 @@ export class SolutionView {
     }
 
     html += `</div>`;
+    
+    // Save scroll position
+    const scrollTop = this.container.scrollTop;
+    
     this.container.innerHTML = html;
+    
+    // Restore scroll position
+    this.container.scrollTop = scrollTop;
 
     this.attachEvents(this.problem.solutions?.find(s => s.id === this.activeSolutionId));
   }
